@@ -1,0 +1,16 @@
+# fly.toml app configuration file generated for oce-bot on 2024-08-21T13:35:01+10:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'oce-bot'
+kill_signal = 'SIGINT'
+kill_timeout = '5s'
+
+[experimental]
+  auto_rollback = true
+
+[env]
+  PORT = '8080'
+  RANK_FEED_CHANNEL = '550387948294766611'
+  SECRET_SANTA_ROLE = '1047877940710494289'

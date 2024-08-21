@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - deployment.yml
+images:
+  - name: oce-bot
+secretGenerator:
+  - name: oce-bot
+    envs:
+      - oce-bot.secret.env
+configMapGenerator:
+  - name: oce-bot
+    envs:
+      - oce-bot.config.env
+
+commonLabels:
+  app: oce-bot

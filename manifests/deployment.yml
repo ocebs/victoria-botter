@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oce-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: oce-bot
+  template:
+    metadata:
+      labels:
+        app: oce-bot
+    spec:
+      containers:
+      - name: oce-bot
+        image: oce-bot
+        envFrom:
+          - configMapRef:
+              name: oce-bot
+          - secretRef:
+              name: oce-bot
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
